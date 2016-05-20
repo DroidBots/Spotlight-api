@@ -23,13 +23,16 @@ var shopSchema = new mongoose.Schema({
 		required : true
 	},
 	shop_rating : {
-		type : Number
+		type : Number,
+		default : 0
 	},
 	shop_category : {
-		type : String
+		type : String,
+		required : true
 	},
 	favourited_by : [{
-		user_id : String
+		user_id : String,
+		default : 0
 	}],
 	shop_deals : [{
 		deal_id : String
@@ -38,17 +41,17 @@ var shopSchema = new mongoose.Schema({
 		product_id : String
 	}],
 	views : {
-		type : Number
+		type : Number,
+		default : 0
 	},
 	marketplace_id : {
-		type : String
+		type : String,
+		// required : true
 	},
 	shop_location : {
 		latitude : String,
-		longitude : String
-	},
-}, {
-	timestamps : true
+		longitude : String,
+		required : true
 });
 
 //Creating the model out of the schema
@@ -56,3 +59,15 @@ var Shop = mongoose.model('Shop', shopSchema);
 
 //Making the model available to our node app
 module.exports = Shop;
+
+//Function for getting all shop 	route==='/shop/'
+module.exports.getAllShops = function(callback){
+	Shop.find(callback);
+}
+
+//Function for getting shop by shop_id 		route==='/shop/:id'
+module.exports.getShopById = function(id, callback){
+	Shop.findById(id,callback);
+}
+
+//Function to get marketplace id
