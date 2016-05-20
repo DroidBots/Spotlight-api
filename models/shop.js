@@ -60,12 +60,12 @@ var Shop = mongoose.model('Shop', shopSchema);
 //Making the model available to our node app
 module.exports = Shop;
 
-//Function for getting all shop 	route==='/shop/'
+//Function for getting all shop 	route==='/api/shops/'
 module.exports.getAllShops = function(callback){
 	Shop.find(callback);
 }
 
-//Function for getting shop by shop_id 		route==='/shop/:id'
+//Function for getting shop by shop_id 		route==='/api/shops/:id'
 module.exports.getShopById = function(id, callback){
 	Shop.findById(id,callback);
 }

@@ -34,3 +34,15 @@ var Deal = mongoose.model('Deal', dealSchema);
 
 //Making the model available to our node app
 module.exports = Deal;
+
+
+//Function for getting all deals 	route==='/api/deals/'
+module.exports.getAllDeals = function(callback){
+	Deal.find(callback);
+}
+
+//Function for getting deal by deal_id 		route==='/api/deal/:id'
+module.exports.getDealById = function(id, callback){
+	Deal.findById(id,callback);
+}
+

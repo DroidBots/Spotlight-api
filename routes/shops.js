@@ -51,5 +51,13 @@ router.post('/create', function(req,res,next){
 		marketplace_id = marketplace_id;	
 	});
 
+	newShop.save(function(err) {
+		if(err) {
+			res.send(err);
+		}
+		else {
+			res.json(newShop);
+		}
+	});
 
 });
