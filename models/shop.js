@@ -31,8 +31,7 @@ var shopSchema = new mongoose.Schema({
 		required : true
 	},
 	favourited_by : [{
-		user_id : String,
-		default : 0
+		user_id : String
 	}],
 	shop_deals : [{
 		deal_id : String
@@ -40,7 +39,7 @@ var shopSchema = new mongoose.Schema({
 	shop_products : [{
 		product_id : String
 	}],
-	views : {
+	shop_views : {
 		type : Number,
 		default : 0
 	},
