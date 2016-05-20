@@ -19,7 +19,7 @@ router.get('/',function(req,res,next){
 router.get('/:id',function(req,res,next){
 	Deal.getDealById(req.params.id, function(err,deal){
 		if(err) {
-			throw err;
+			res.send(err);
 		}
 		else {
 			res.json(deal);
@@ -33,11 +33,11 @@ router.post('/create', function(req,res,next){
 		//***TO DO *** Add validations to the above obtained fields
 
 	var newDeal = new Deal({
-		shop_id = req.body.shop_id;
-		deal_title = req.body.deal_title;
-		deal_description = req.body.deal_description;
-		deal_picture_url = req.body.deal_picture_url;
-		deal_category = req.body.deal_category;
+		shop_id : req.body.shop_id,
+		deal_title : req.body.deal_title,
+		deal_description : req.body.deal_description,
+		deal_picture_url : req.body.deal_picture_url,
+		deal_category : req.body.deal_category,
 	});
 
 	newDeal.save(function(err) {
@@ -49,3 +49,29 @@ router.post('/create', function(req,res,next){
 		}
 	});
 });
+
+//GET deal by shop_id
+router.get('/shop/:id',function(req,res,next){
+	Deal.getDealByShopId(req.params.id, function(err,deal){
+		if(err) {
+			res.send(err);
+		}
+		else {
+			res.json(deal);
+		}
+	});
+});
+
+//GET deal by category_id
+router.get('/:id',function(req,res,next){
+	Deal.getDealByCategoryId(req.params.id, function(err,deal){
+		if(err) {
+			res.send(err);
+		}
+		else {
+			res.json(deal);
+		}
+	});
+});
+
+module.exports = router;

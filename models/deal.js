@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var dealCategory = require('../models/dealCategory.js');
 
 //Deal Schema
 var dealSchema = new mongoose.Schema({
@@ -44,5 +45,21 @@ module.exports.getAllDeals = function(callback){
 //Function for getting deal by deal_id 		route==='/api/deal/:id'
 module.exports.getDealById = function(id, callback){
 	Deal.findById(id,callback);
+}
+
+module.exports.increaseViewCount = function(id, callback) {
+	//*****TODO******
+}
+
+//Function for getting deals by shop_id 	route==='/api/deals/shop/:shop_id'
+module.exports.getDealByShopId = function(shop_id, callback) {
+	Deal.findOne({shop_id : shop_id}, callback);
+}
+
+//Function for getting deals by category_id 	route==='/api/deals/category/:category_id'
+module.exports.getDealByCategoryId = function(category_id, callback) {
+	dealCategory.findById(category_id, function(err, category) {
+		Deal.findOne({deal_category : category.deal_category_name},callback);
+	});
 }
 

@@ -20,4 +20,3 @@ var DealCategory = mongoose.model('DealCategory', dealCategorySchema);
 //Making the model available to our node app
 module.exports = DealCategory;
 
-//**** TO-DO********  Function to get ID of the category, arguments being the name of category

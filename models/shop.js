@@ -48,8 +48,7 @@ var shopSchema = new mongoose.Schema({
 		// required : true
 	},
 	shop_location : {
-		latitude : String,
-		longitude : String,
+		type : String,
 		required : true
 	}
 });

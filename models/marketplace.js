@@ -6,11 +6,10 @@ var marketplaceSchema = new mongoose.Schema({
 		type : String,
 		required : true
 	},
-	marketplace_location : {
-		latitude : String,
-		longitude : String,
+	marketplace_location : [{
+		type : String,
 		required : true
-	},
+	}],
 	shop_ids : [{
 		id : String
 	}]
