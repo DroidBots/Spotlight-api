@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-//Shop CAtegory schema
+//Shop Category schema
 var shopCategorySchema = new mongoose.Schema({
 	shop_category_name : {
 		type : String,
