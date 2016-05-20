@@ -51,6 +51,7 @@ var shopSchema = new mongoose.Schema({
 		latitude : String,
 		longitude : String,
 		required : true
+	}
 });
 
 //Creating the model out of the schema
