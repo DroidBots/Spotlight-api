@@ -74,4 +74,18 @@ router.get('/:id',function(req,res,next){
 	});
 });
 
+//GET request to increment product_views
+router.get('/:id', function(req,res,next) {
+	Product.increaseViews(req.params.id, function(err,product) {
+		if(err) {
+			res.send(err);
+		}
+		else {
+			res.json({
+				message : "views successfully incremented"
+			});
+		}
+	});
+});
+
 module.exports = router;

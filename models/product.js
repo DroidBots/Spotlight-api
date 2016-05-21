@@ -70,3 +70,13 @@ module.exports.getProductByCategoryId = function(category_id, callback) {
 		Product.findOne({product_category : category.product_category_name},callback);
 	});
 }
+
+//Function for getting products by category_id 	route==='/api/products/category/:category_id'
+module.exports.increaseViews = function(id,callback) {
+	Product.findById(id, function(err, prod) {
+		if(err) return handleError(err);
+
+		prod.product_views = prod.product_views + 1;
+		prod.save(function(err,callback){});
+	});
+}
